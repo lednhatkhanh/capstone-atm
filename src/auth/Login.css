@@ -22,3 +22,9 @@
 .login .card-content {
   width: 300px;
   padding: 0; }
+
+.input {
+  padding: 12px !important;
+  font-size: 16px !important;
+  margin-top: 0 !important;
+}
