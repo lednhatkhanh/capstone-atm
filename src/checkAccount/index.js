@@ -29,7 +29,8 @@ class CheckAccount extends Component {
     return (
       <div className="card">
         <div className="card-content">
-          <h1 className='title is-3'>You have: {this.state.money}$</h1>
+          <h1 className='title is-3' >Your account ballance is</h1>
+          <h1 className='title is-3'>{this.state.money}$</h1>
           <button onClick={this.handleGoBack} className="button is-primary">Back</button>
         </div>
       </div>
