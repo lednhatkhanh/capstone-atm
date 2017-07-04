@@ -1,20 +1,20 @@
 {
   "user-info": {
-    "username": "test",
+    "username": "admin",
     "pin": "123456"
   },
   "account": {
-    "money": 1999000
+    "money": 1950000
   },
   "users": [
     {
-      "username": "Ref",
-      "money": 7876556,
+      "username": "Manh",
+      "money": 1010000,
       "id": 1
     },
     {
-      "username": "Lodan",
-      "money": 5124444,
+      "username": "Thuc",
+      "money": 520000,
       "id": 2
     }
   ]

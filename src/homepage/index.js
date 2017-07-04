@@ -6,10 +6,10 @@ class HomePage extends Component {
     return (
       <div className='card'>
         <div className="card-content">
-          <h1 className="title">Welcome, customer</h1>
+          <h1 className="title">Welcome to Sunway ATM</h1>
           <div className="field is-grouped">
             <p className="control">
-              <Link to='/check-account' className='button is-primary'>
+              <Link to='/check-account' className='button is-info'>
                 Check account
               </Link>
             </p>
@@ -21,6 +21,11 @@ class HomePage extends Component {
             <p className="control">
               <Link to='/transfer' className='button is-info'>
                 Transfer
+              </Link>
+            </p>
+            <p className="control">
+              <Link to='/transfer' className='button is-info'>
+                Deposit
               </Link>
             </p>
           </div>

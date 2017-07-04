@@ -1,7 +1,14 @@
+
 body {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0db;
+    background-color: #f2f7f6;
+    background-image: url(image/background.jpg);
+}
+
+.card{
+  width: 445px;
+  height: 305px;
 }
