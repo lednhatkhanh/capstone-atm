@@ -39,10 +39,11 @@ class CheckAccount extends Component {
       <div className="card">
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         <div className="card-content">
-          <p className='title'> Your account ballance is <br/> {this.state.money}$ </p>
-          <br/>
-          <p style={{textAlign: "center"}}>------------------</p>
-          <div className='title'> Do you want to make <br/> another transaction? <br/>
+          <div className="title"><h1 >Withdraw</h1></div>
+          <hr/>
+          <div className='title'>
+            <div>Your account ballance is <br/> {this.state.money}$ </div>
+            <div className="space">Do you want to make <br/> another transaction?</div>
             <div className="d-flex justify-content-around set_button">
                 <div><Button onClick={this.handleGoBack} className="button check_account" outline color="info">Yes</Button></div>
                 <div><Link to='/'>

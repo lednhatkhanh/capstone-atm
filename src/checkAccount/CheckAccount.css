@@ -4,8 +4,8 @@
 .button.check_account {
   width: 100px; }
 
-.column {
-  text-align: center; }
-
 .set_button {
-  margin-top: 15px; }
+  margin-top: 5px; }
+
+.space {
+  margin-top: 10px; }

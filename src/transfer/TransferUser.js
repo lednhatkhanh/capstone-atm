@@ -16,8 +16,8 @@ class TransferUser extends Component {
   }
   async handleTransfer() {
     const amount = this.amountInput.value;
-    if(!amount || amount > this.props.money) {
-      alert('INVALID');
+    if(!amount || amount > this.props.money ||amount%20!==0) {
+      alert('Invalid amount! The amount must be multiple of 20$');
     } else {
       await api.patch(`/users/${this.props.user.id}`, {
         username: this.props.user.username,

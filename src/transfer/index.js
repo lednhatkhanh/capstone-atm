@@ -1,7 +1,7 @@
 import './index.css';
 
 import React, { Component } from 'react';
-import TransferUser from './TransferUser';
+//import TransferUser from './TransferUser';
 import {Input
   ,Button, Label
 } from 'reactstrap';
@@ -59,11 +59,11 @@ class Transfer extends Component {
   async handleTransfer(id, amount) {
     let temp = 0;
     if((!amount || !id || amount > this.state.money || amount < 20)) {
-      alert("Invalid");
+      alert("Invalid amount! The amount must be multiple of 20$");
     }
     else {
       for(let user of this.state.users) {
-        if(user.id == id) {
+        if(user.id === id) {
           temp++;
           await api.patch(`/users/${id}`, {
             money: user.money + parseInt(amount, 10),
@@ -77,7 +77,7 @@ class Transfer extends Component {
           this.updateBalance();
         }
       }
-      if(temp == 0) {
+      if(temp === 0) {
         alert(`ID: ${id} not exists !`);
       }
     }
@@ -98,7 +98,6 @@ class Transfer extends Component {
         <div className="main_content d-flex flex-column">
           <div className="title"><h1 >Transfer</h1></div>
           <hr/>
-          <div style={{textAlign:'center'}}><h4>You have $ {this.state.money}</h4></div>
           <div className="content d-flex justify-content-around ">
             <div className="p-2">
               <Label for="id">ID</Label>
@@ -116,9 +115,9 @@ class Transfer extends Component {
 
           <div className="d-flex justify-content-around">
             <Button onClick={() => this.handleTransfer(this.state.id, this.state.amount)}
-             color="primary">Transfer</Button>
+             outline color="info" className= "button transfer">Transfer</Button>
             <Button onClick={() => this.props.history.goBack()}
-             color="secondary">Back</Button>
+             outline color="danger" className= "button transfer">Back</Button>
           </div>
         </div>
       </div>
