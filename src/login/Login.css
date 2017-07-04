@@ -4,13 +4,21 @@
 
 .card {
   background: rgba(0, 0, 0, 0.2); }
-  .card .title {
-    color: white;
-    text-align: center; }
   .card label {
     color: white;
     font-weight: 400 !important; }
-  .card .control.login {
-    padding: 20px 0; }
-  .card .control button {
-    width: 100%; }
+
+.login .title {
+  color: white;
+  text-align: center;
+  padding-top: 30px; }
+
+.login .control.login {
+  padding: 20px 0 40px; }
+
+.login .control button {
+  width: 100%; }
+
+.login .card-content {
+  width: 300px;
+  padding: 0; }

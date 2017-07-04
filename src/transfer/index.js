@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import TransferUser from './TransferUser';
 
 import api from '../api';
+import './index.css';
 
 class Transfer extends Component {
   constructor(props) {
@@ -45,14 +46,16 @@ class Transfer extends Component {
   }
   render() {
     return (
-      <div className='box'>
-        <h3 className="title">You have {this.state.money}VND</h3>
+      <div className='card homepage transfer box'>
+        <h3 className="title ">You have $ {this.state.money}</h3>
         {this.state.users.map(u => <TransferUser
             key={u.id}
             user={u}
             updateBalance={this.updateBalance}
             money={this.state.money} />)}
-        <button onClick={() => this.props.history.goBack()} className="button">Back</button>
+        <div className="transfer-back">
+          <button onClick={() => this.props.history.goBack()} className="button">Back</button>
+        </div>
       </div>
     );
   }

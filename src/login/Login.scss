@@ -6,22 +6,30 @@
 .card {
   background: rgba(0,0,0,0.2);
 
-  .title {
-    color: white;
-    text-align: center;
-  }
-
   label {
     color: white;
     font-weight: 400 !important;
   }
+}
+
+
+.login {
+  .title {
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+  }
 
   .control {
     &.login {
-      padding: 20px 0;
+      padding: 20px 0 40px;
     }
     button {
       width: 100%;
     }
+  }
+  .card-content {
+    width: 300px;
+    padding: 0;
   }
 }

@@ -1,0 +1,13 @@
+.card.check-account .btn-back {
+  height: 60vh;
+  display: flex;
+  align-items: flex-end; }
+  .card.check-account .btn-back button {
+    margin-left: auto; }
+
+.card.check-account .card-content {
+  height: 100vh; }
+
+.card.check-account .title {
+  font-size: 4em;
+  padding-top: 180px; }

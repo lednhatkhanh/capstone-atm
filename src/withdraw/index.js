@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../api';
+import './WithDraw.css'
 
 class Withdraw extends Component {
   static propTypes = {
@@ -39,26 +40,30 @@ class Withdraw extends Component {
       })
     }
   }
+
   render() {
     return (
-      <div className="card" id='main'>
+      <div className="card homepage withdraw" id='main'>
         <div className="card-content">
-          <h3>You have {this.state.money}$</h3>
-          <div className="field">
-            <label className='label' htmlFor="amount">Amount to withdraw</label>
+          <h3 className="money">You have ${this.state.money}</h3>
+          <div className="field withdraw-input">
+            <label className='label amount-withdraw ' htmlFor="amount">Amount to withdraw</label>
             <div className="control">
               <input
+              placeholder="$"
               ref={(input) => { this.amountInput = input }}
               name='amount'
               className='input'
               type="number"
-              min='10000'
+              min='20'
               max={this.state.money}/>
             </div>
           </div>
-          <div className="field is-grouped">
+          <div className="field btn-control is-grouped">
             <p className="control">
-              <button onClick={this.handleWithdraw} className="button is-primary">Withdraw</button>
+              <div>
+                <button onClick={this.handleWithdraw} className="button is-primary">Withdraw</button>
+              </div>
               <button onClick={() => this.props.history.goBack()} className="button">Back</button>
             </p>
           </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../api';
+import './CheckAccount.css';
 
 class CheckAccount extends Component {
   static propTypes = {
@@ -27,10 +28,12 @@ class CheckAccount extends Component {
   }
   render() {
     return (
-      <div className="card">
+      <div className="card homepage check-account">
         <div className="card-content">
-          <h1 className='title is-3'>You have: {this.state.money}$</h1>
-          <button onClick={this.handleGoBack} className="button is-primary">Back</button>
+          <h1 className='title is-3'>You have: ${this.state.money}</h1>
+          <div className="btn-back">
+            <button onClick={this.handleGoBack} className="button is-primary">Back</button>
+          </div>
         </div>
       </div>
     );
