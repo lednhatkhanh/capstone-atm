@@ -2,20 +2,44 @@ import './index.css';
 
 import React, { Component } from 'react';
 import TransferUser from './TransferUser';
-
+import {Input
+  ,Button, Label
+} from 'reactstrap';
+import stylesheet from './index.css';
 import api from '../api';
+
+//
+//
+//         <Input type="text" value={this.state.id} onChange={this.handleChangeID}  placeholder="Enter ID" />
+
+
+//         <Input type="number" min="20"
+//           step="20"
+//           max={this.state.money}
+//           value={this.state.amount}
+//           onChange={this.handleChangeAmount}
+//           placeholder="Enter amount to transfer"
+//         />
+
+
+//         <button onClick={() => this.handleTransfer(this.state.id, this.state.amount)} className="button is-primary">Transfer</button>
+//         <button onClick={() => this.props.history.goBack()} className="button">Back</button>
 
 class Transfer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      id: '',
       money: 0,
       users: [],
+      amount: 20
     }
 
     this.updateBalance = this.updateBalance.bind(this);
     this.handleTransfer = this.handleTransfer.bind(this);
+    this.handleChangeID = this.handleChangeID.bind(this);
+    this.handleChangeAmount = this.handleChangeAmount.bind(this);
   }
   async componentDidMount() {
     this.updateBalance();
@@ -30,29 +54,73 @@ class Transfer extends Component {
       users: users.data,
     });
   }
-  async handleTransfer(id) {
-    const amount = this.amountInput.value;
-    console.log(amount);
-    if(!amount || amount > this.state.money) {
-      alert('invalid');
-    } else {
+
+
+  async handleTransfer(id, amount) {
+    let temp = 0;
+    if((!amount || !id || amount > this.state.money || amount < 20)) {
+      alert("Invalid");
+    }
+    else {
       for(let user of this.state.users) {
-        if(user.id === id) {
-          console.log('ALERT');
+        if(user.id == id) {
+          temp++;
+          await api.patch(`/users/${id}`, {
+            money: user.money + parseInt(amount, 10),
+          });
+
+          await api.put('/account', {
+            money: this.state.money - parseInt(amount, 10),
+          });
+
+          alert(`You transfered to ${user.username}: $${amount}`);
+          this.updateBalance();
         }
+      }
+      if(temp == 0) {
+        alert(`ID: ${id} not exists !`);
       }
     }
   }
+
+  handleChangeID(event) {
+    this.setState({id: event.target.value});
+  }
+
+  handleChangeAmount(event) {
+    this.setState({amount: event.target.value});
+  }
+
   render() {
     return (
-      <div className='box'>
-        <h3 className="title">You have $ {this.state.money}</h3>
-        {this.state.users.map(u => <TransferUser
-            key={u.id}
-            user={u}
-            updateBalance={this.updateBalance}
-            money={this.state.money} />)}
-        <button onClick={() => this.props.history.goBack()} className="button">Back</button>
+      <div>
+        <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
+        <div className="main_content d-flex flex-column">
+          <div className="title"><h1 >Transfer</h1></div>
+          <hr/>
+          <div style={{textAlign:'center'}}><h4>You have $ {this.state.money}</h4></div>
+          <div className="content d-flex justify-content-around ">
+            <div className="p-2">
+              <Label for="id">ID</Label>
+              <Input className="item_input" type="text" value={this.state.id} onChange={this.handleChangeID}  placeholder="Enter ID" />
+            </div>
+            <div className="p-2">
+              <Label for="amount">Amount to transfer</Label>
+              <Input className="item_input" type="number" min="20"
+                step="20" max={this.state.money}
+                value={this.state.amount} onChange={this.handleChangeAmount}
+                placeholder="Enter amount to transfer"
+              />
+            </div>
+          </div>
+
+          <div className="d-flex justify-content-around">
+            <Button onClick={() => this.handleTransfer(this.state.id, this.state.amount)}
+             color="primary">Transfer</Button>
+            <Button onClick={() => this.props.history.goBack()}
+             color="secondary">Back</Button>
+          </div>
+        </div>
       </div>
     );
   }
