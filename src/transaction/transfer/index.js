@@ -3,7 +3,7 @@ import './index.css';
 import React, { Component } from 'react';
 import TransferUser from './TransferUser';
 
-import api from '../api';
+import api from '../../api';
 import './index.css';
 
 class Transfer extends Component {
@@ -13,10 +13,12 @@ class Transfer extends Component {
     this.state = {
       money: 0,
       users: [],
+      user: null
     }
 
     this.updateBalance = this.updateBalance.bind(this);
     this.handleTransfer = this.handleTransfer.bind(this);
+    this.handleSelectUser = this.handleSelectUser.bind(this);
   }
   async componentDidMount() {
     this.updateBalance();
@@ -29,6 +31,7 @@ class Transfer extends Component {
     const users = await api.get('/users');
     this.setState({
       users: users.data,
+      user: this.state.user || 0
     });
   }
   async handleTransfer(id) {
@@ -44,15 +47,32 @@ class Transfer extends Component {
       }
     }
   }
+  handleSelectUser (e) {
+    this.setState({
+      user: e.target.value
+    });
+  }
   render() {
     return (
       <div className='card homepage transfer box'>
         <h3 className="title ">You have $ {this.state.money}</h3>
-        {this.state.users.map(u => <TransferUser
-            key={u.id}
-            user={u}
+        <div className="group">
+          <p className="control">
+            <span className="select">
+              <select onChange={this.handleSelectUser} value={this.state.user || 0}>
+                {this.state.users.map((u, i) => <option key={u.id} value={i}>{u.username}</option>)}
+              </select>
+            </span>
+          </p>
+        </div>
+        { this.state.users.length !== 0 ?
+          <TransferUser
+            key={this.state.users[this.state.user].id}
+            user={this.state.users[this.state.user]}
             updateBalance={this.updateBalance}
-            money={this.state.money} />)}
+            money={this.state.money} />
+          : null
+        }
         <div className="transfer-back">
           <button onClick={() => this.props.history.goBack()} className="button">Back</button>
         </div>

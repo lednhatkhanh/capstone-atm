@@ -28,7 +28,7 @@ class LoginForm extends Component {
     if(username !== res.data.username || pin !== res.data.pin) {
       alert('Invalid user credentials!');
     } else {
-      this.props.history.push('/homepage')
+      this.props.history.push('/home')
     }
   }
   render() {

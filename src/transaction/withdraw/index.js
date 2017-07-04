@@ -3,7 +3,7 @@ import './WithDraw.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import api from '../api';
+import api from '../../api';
 import './WithDraw.css'
 
 class Withdraw extends Component {

@@ -1,5 +1,5 @@
 body {
-    background: url('./static/image/dollar.jpg');
+    background: url('./assets/image/dollar.jpg');
     height: 100vh;
     display: flex;
     justify-content: center;
