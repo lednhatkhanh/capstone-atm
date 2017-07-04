@@ -1,4 +1,16 @@
 #form-container {
-    padding-left: 100px;
-    padding-right: 100px;
-}
+  padding-left: 100px;
+  padding-right: 100px; }
+
+.card {
+  background: rgba(0, 0, 0, 0.2); }
+  .card .title {
+    color: white;
+    text-align: center; }
+  .card label {
+    color: white;
+    font-weight: 400 !important; }
+  .card .control.login {
+    padding: 20px 0; }
+  .card .control button {
+    width: 100%; }

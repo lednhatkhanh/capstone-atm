@@ -1,7 +1,22 @@
 body {
+    background: url('./static/image/dollar.jpg');
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0db;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 }
+
+body::before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
+

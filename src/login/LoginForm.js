@@ -59,7 +59,7 @@ class LoginForm extends Component {
           </p>
         </div>
         <div className="field">
-          <p className="control">
+          <p className="control login">
             <button onClick={this.handleLogin} className="button is-primary">Login</button>
           </p>
         </div>
