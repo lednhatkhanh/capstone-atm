@@ -22,7 +22,7 @@ class Profile extends Component {
     const res = await api.get('/account');
     this.setState({
       money: res.data.money,
-      name: res.data.name
+      username: res.data.username
     });
   }
   handleGoBack() {
@@ -36,12 +36,12 @@ class Profile extends Component {
       <div className="card homepage check-account">
         <div className="card-content">
           <h1 className='title is-3'>
-            <div>Name: {this.state.name}</div>
+            <div>Name: {this.state.username}</div>
             <div>You have: ${this.state.money}</div>
           </h1>
           <div className="btn-back">
             <button style={{marginRight: 'auto', marginLeft: 0}} onClick={this.handleQuery} className="button is-primary">Query</button>
-            <button onClick={this.handleGoBack} className="button is-primary">Back</button>
+            <button onClick={this.handleGoBack} className="button is-default">Back</button>
           </div>
         </div>
       </div>
