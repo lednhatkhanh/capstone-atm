@@ -46,7 +46,7 @@ class Transfer extends Component {
   render() {
     return (
       <div className='box'>
-        <h3 className="title">You have {this.state.money}VND</h3>
+        <h3 className="title">You have $ {this.state.money}</h3>
         {this.state.users.map(u => <TransferUser
             key={u.id}
             user={u}
