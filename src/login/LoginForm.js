@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import api from '../api';
+import {Button} from 'reactstrap';
 
 class LoginForm extends Component {
   static propTypes = {
@@ -60,7 +61,7 @@ class LoginForm extends Component {
         </div>
         <div className="field">
           <p className="control">
-            <button onClick={this.handleLogin} className="button ">Login</button>
+            <Button onClick={this.handleLogin} className="button login" outline color="info">Login</Button>
           </p>
         </div>
       </div>

@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import stylesheet from './Homepage.css';
-import { Row } from 'reactstrap';
-
 
 
 class HomePage extends Component {
+  constructor(props) {
+    super(props);
+    this.handleDeposit = this.handleDeposit.bind(this);
+  }
+  handleDeposit(){
+    alert('This function has not implemented yet!');
+  }
   render() {
     return (
       <div>
@@ -34,11 +39,10 @@ class HomePage extends Component {
                 </Link>
               </div>
               <div className="item item_4">
-                <Link to='/transfer' className='link'>
+                <Link to className='link' onClick = {this.handleDeposit}>
                  Deposit
                 </Link>
               </div>
-
             </div>
           </div>
         </div>

@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 import api from '../api';
 import  stylesheet from './CheckAccount.css';
-import { Row, Col,Button } from 'reactstrap';
+import {Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -43,8 +44,12 @@ class CheckAccount extends Component {
           <p style={{textAlign: "center"}}>------------------</p>
           <div className='title'> Do you want to make <br/> another transaction? <br/>
             <div className="d-flex justify-content-around set_button">
-                <div><Button onClick={this.handleGoBack} className="button" outline color="success">Yes</Button></div>
-                <div><Button onClick={this.handleCancel} className="button" outline color="danger">No</Button></div>
+                <div><Button onClick={this.handleGoBack} className="button check_account" outline color="info">Yes</Button></div>
+                <div><Link to='/'>
+                 <a>
+                  <Button onClick={this.handleCancel} className="button check_account" outline color="danger">No</Button>
+                 </a>
+               </Link></div>
             </div>
           </div>
         </div>

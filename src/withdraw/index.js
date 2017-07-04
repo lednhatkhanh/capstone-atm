@@ -28,8 +28,8 @@ class Withdraw extends Component {
   }
   async handleWithdraw() {
     const amount = this.amountInput.value;
-    if(!amount || amount > this.state.money) {
-      alert('Invalid amount!');
+    if(!amount || amount > this.state.money ||amount%20!==0) {
+      alert('Invalid amount! The amount must be multiple of 20$');
     } else {
       await api.patch('/account', {
         money: this.state.money - amount,
@@ -52,7 +52,8 @@ class Withdraw extends Component {
               name='amount'
               className='input'
               type="number"
-              min='10000'
+              step="20"
+              min='1000'
               max={this.state.money}/>
             </div>
           </div>

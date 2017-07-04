@@ -2,7 +2,9 @@
   text-align: center;
 }
 .button{
-  width: 100px;
+  &.check_account{
+    width: 100px;
+  }
 }
 .column{
   text-align: center;

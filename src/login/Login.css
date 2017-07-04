@@ -1,7 +1,6 @@
 #form-container {
-    padding-left: 100px;
-    padding-right: 100px;
-}
-.button{
-  background-color: #20e6ff;
-}
+  padding-left: 100px;
+  padding-right: 100px; }
+
+.button.login {
+  width: 100px; }
