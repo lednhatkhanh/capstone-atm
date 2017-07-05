@@ -5,16 +5,26 @@
   padding: 10px; }
   .main_content .title {
     text-align: center;
-    margin: 20px 0px; }
+    padding: 20px; }
   .main_content .item {
-    padding: 35px 30px;
+    padding: 35px 10px;
     box-shadow: 0px 0px 5px #ecf0f1;
     width: 50%;
     margin: 5px;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center; }
     .main_content .item:hover {
       box-shadow: 1px 1px 5px #8e44ad; }
+  @media (max-width: 1007px) {
+    .main_content .item {
+      padding: 40px 10px;
+      box-shadow: 0px 0px 5px #ecf0f1;
+      width: 50%;
+      margin: 5px;
+      font-size: 25px;
+      text-align: center; }
+      .main_content .item:hover {
+        box-shadow: 1px 1px 5px #8e44ad; } }
   .main_content .link {
     text-decoration: none;
     color: white;

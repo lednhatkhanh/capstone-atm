@@ -4,7 +4,7 @@
     "pin": "123456"
   },
   "account": {
-    "money": 6860
+    "money": 10000
   },
   "users": [
     {
@@ -16,6 +16,12 @@
       "username": "Thuc",
       "money": 3000,
       "id": 2
+    },
+    {
+      "username": "Vinh",
+      "money": 3000,
+      "id": 2
     }
+
   ]
 }

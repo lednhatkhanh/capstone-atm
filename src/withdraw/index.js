@@ -39,7 +39,7 @@ class Withdraw extends Component {
       this.setState({
         money: this.state.money - amount,
       });
-      alert('Your account balance is '+this.state.money);
+      alert('You withdraw $' + amount);
       this.amountInput.value = '';
     }
   }
