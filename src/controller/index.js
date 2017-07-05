@@ -50,9 +50,9 @@ class HomePage extends Component {
                 </Link>
               </div>
               <div className="item item_4">
-                <div className='link' onClick = {this.handleDeposit}>
-                 Deposit
-                </div>
+                <Link to='/deposit' className='link'>
+                  Deposit
+                </Link>
               </div>
             </div>
           </div>
