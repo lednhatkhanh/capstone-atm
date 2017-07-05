@@ -26,7 +26,6 @@ class Withdraw extends Component {
   async componentDidMount() {
     const res = await api.get('/account');
     const money = parseInt(res.data.money, 10);
-
     this.setState({
       money,
     })
@@ -48,7 +47,7 @@ class Withdraw extends Component {
   }
   async handleWithdraw() {
     const amount = this.amountInput.value;
-    if(!amount || amount > this.state.money ||amount%20!==0) {
+    if(!amount || amount > this.state.money ||amount%20!==0|| amount  < 20) {
       alert('Invalid amount! The amount must be multiple of 20$');
       this.amountInput.value = '';
     } else {
@@ -58,7 +57,8 @@ class Withdraw extends Component {
       this.setState({
         money: this.state.money - amount,
       });
-      this.toggle();
+      //this.toggle();
+      alert('You withdraw $' + amount);
     }
   }
   render() {
@@ -85,16 +85,7 @@ class Withdraw extends Component {
           <div className="d-flex justify-content-around">
             <div>
               <Button onClick={this.handleWithdraw} className="button withdraw" outline color="info">Withdraw</Button>
-              <Modal isOpen={this.state.modal} toggle={this.toggle} >
-                <ModalHeader toggle={this.toggle}>Print Receipt</ModalHeader>
-                <ModalBody>
-                  Do you want to print receipt?
-                </ModalBody>
-                <ModalFooter>
-                  <Button className="button withdraw" outline color="info" onClick={this.handleClickYes}> Yes </Button>{' '}
-                  <Button className="button withdraw" outline color="danger" onClick={this.handleClickYes} >No</Button>
-                </ModalFooter>
-              </Modal>
+
             </div>
             <div>
               <Link to='/'>

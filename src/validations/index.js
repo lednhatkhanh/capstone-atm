@@ -12,7 +12,7 @@ class Login extends Component {
     return (
       <div className='card' id='form-container'>
         <div className="card-content">
-          <h1 className="title">Login</h1>
+          <h1 className="title">Insert Card</h1>
           <LoginForm history={this.props.history} />
         </div>
       </div>

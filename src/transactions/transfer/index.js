@@ -2,7 +2,7 @@ import './index.css';
 
 import React, { Component } from 'react';
 import {Input
-  ,Button, Label
+  ,Button, Label,  Modal, ModalHeader, ModalBody, ModalFooter
 } from 'reactstrap';
 import stylesheet from './index.css';
 import api from '../../api';
@@ -16,13 +16,17 @@ class Transfer extends Component {
       id: '',
       money: 0,
       users: [],
-      amount: 20
+      amount: 20,
+      modal: false
     }
 
     this.updateBalance = this.updateBalance.bind(this);
     this.handleTransfer = this.handleTransfer.bind(this);
     this.handleChangeID = this.handleChangeID.bind(this);
     this.handleChangeAmount = this.handleChangeAmount.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.handleClickYes = this.handleClickYes.bind(this);
+    this.handleClickNo = this.handleClickNo.bind(this);
   }
   async componentDidMount() {
     this.updateBalance();
@@ -41,7 +45,7 @@ class Transfer extends Component {
 
   async handleTransfer(id, amount) {
     let temp = 0;
-    if((!amount || !id || amount > this.state.money || amount < 20)) {
+    if((!amount || !id || amount > this.state.money ||amount%20!==0|| amount < 20)) {
       alert("Invalid amount! The amount must be multiple of 20$");
     }
     else {
@@ -73,7 +77,18 @@ class Transfer extends Component {
   handleChangeAmount(event) {
     this.setState({amount: event.target.value});
   }
-
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+  handleClickYes(){
+    this.toggle();
+  }
+  handleClickNo(){
+    this.toggle();
+    alert('Thank you for using our service!');
+  }
   render() {
     return (
       <div>

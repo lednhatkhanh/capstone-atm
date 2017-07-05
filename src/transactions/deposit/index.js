@@ -29,7 +29,7 @@ class Deposit extends Component {
   }
   async handleDeposit() {
     const amount = this.amountInput.value;
-    if(!amount || amount > this.state.money ||amount%20!==0) {
+    if(!amount || amount > this.state.money|| amount <20 ||amount%20!==0) {
       alert('Invalid amount! The amount must be multiple of 20$');
       this.amountInput.value = '';
     } else {
