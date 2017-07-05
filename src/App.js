@@ -1,10 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Login from './login';
-import HomePage from './homepage';
-import CheckAccount from './checkAccount';
-import Withdraw from './withdraw';
+import Login from './card-reader';
+import HomePage from './controller';
+import CheckAccount from './validations';
+import Withdraw from './transactions/withdraw';
 import Transfer from './transfer';
 import NoMatch from './NoMatch';
 
