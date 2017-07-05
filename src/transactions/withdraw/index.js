@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {Button} from 'reactstrap';
 import { Link } from 'react-router-dom';
-import api from '../api';
+import api from '../../api';
 
 class Withdraw extends Component {
   static propTypes = {

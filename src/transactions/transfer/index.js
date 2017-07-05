@@ -1,29 +1,12 @@
 import './index.css';
 
 import React, { Component } from 'react';
-//import TransferUser from './TransferUser';
 import {Input
   ,Button, Label
 } from 'reactstrap';
 import stylesheet from './index.css';
-import api from '../api';
+import api from '../../api';
 
-//
-//
-//         <Input type="text" value={this.state.id} onChange={this.handleChangeID}  placeholder="Enter ID" />
-
-
-//         <Input type="number" min="20"
-//           step="20"
-//           max={this.state.money}
-//           value={this.state.amount}
-//           onChange={this.handleChangeAmount}
-//           placeholder="Enter amount to transfer"
-//         />
-
-
-//         <button onClick={() => this.handleTransfer(this.state.id, this.state.amount)} className="button is-primary">Transfer</button>
-//         <button onClick={() => this.props.history.goBack()} className="button">Back</button>
 
 class Transfer extends Component {
   constructor(props) {
