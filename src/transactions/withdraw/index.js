@@ -2,7 +2,7 @@ import './WithDraw.css';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Button} from 'reactstrap';
+import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import api from '../../api';
 
@@ -15,9 +15,13 @@ class Withdraw extends Component {
 
     this.state = {
       money: 0,
+      modal: false
     }
 
     this.handleWithdraw = this.handleWithdraw.bind(this);
+    this.toggle = this.toggle.bind(this);
+    this.handleClickYes = this.handleClickYes.bind(this);
+    this.handleClickNo = this.handleClickNo.bind(this);
   }
   async componentDidMount() {
     const res = await api.get('/account');
@@ -26,6 +30,21 @@ class Withdraw extends Component {
     this.setState({
       money,
     })
+  }
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+  handleClickYes(){
+    this.toggle();
+    const amount = this.amountInput.value;
+    alert('You withdraw $' + amount + '. Your account balance is ' + this.state.money);
+    this.amountInput.value = '';
+  }
+  handleClickNo(){
+    this.toggle();
+    alert('Thank you for using our service!');
   }
   async handleWithdraw() {
     const amount = this.amountInput.value;
@@ -39,8 +58,7 @@ class Withdraw extends Component {
       this.setState({
         money: this.state.money - amount,
       });
-      alert('You withdraw $' + amount);
-      this.amountInput.value = '';
+      this.toggle();
     }
   }
   render() {
@@ -65,7 +83,19 @@ class Withdraw extends Component {
             </div>
           </div>
           <div className="d-flex justify-content-around">
-            <div><Button onClick={this.handleWithdraw} className="button withdraw" outline color="info">Withdraw</Button></div>
+            <div>
+              <Button onClick={this.handleWithdraw} className="button withdraw" outline color="info">Withdraw</Button>
+              <Modal isOpen={this.state.modal} toggle={this.toggle} >
+                <ModalHeader toggle={this.toggle}>Print Receipt</ModalHeader>
+                <ModalBody>
+                  Do you want to print receipt?
+                </ModalBody>
+                <ModalFooter>
+                  <Button className="button withdraw" outline color="info" onClick={this.handleClickYes}> Yes </Button>{' '}
+                  <Button className="button withdraw" outline color="danger" onClick={this.handleClickYes} >No</Button>
+                </ModalFooter>
+              </Modal>
+            </div>
             <div>
               <Link to='/'>
                 <a>
