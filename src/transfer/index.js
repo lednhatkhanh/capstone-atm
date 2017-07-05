@@ -96,8 +96,9 @@ class Transfer extends Component {
       <div>
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         <div className="main_content d-flex flex-column">
-          <div className="title"><h1 >Transfer</h1></div>
+          <div style={{textAlign: 'center'}}><h1 >Transfer</h1></div>
           <hr/>
+
           <div className="content d-flex justify-content-around ">
             <div className="p-2">
               <Label for="id">ID</Label>
