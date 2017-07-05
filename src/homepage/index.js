@@ -23,8 +23,8 @@ class HomePage extends Component {
         <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
 
         <div className="main_content d-flex flex-column ">
-          <div className="title d-flex justify-content-between">
-            <div style={{lineHeight: '150%'}}>Welcome to Sunway ATM</div>
+          <div style={{padding:'10px'}} className="title d-flex justify-content-between">
+            <div style={{lineHeight: '150%', fontSize:'28px'}}>Welcome to Sunway ATM</div>
             <div><Link to='/' onClick={this.handleCancel} className="link" style={{color: 'black'}}>
               <Button color="secondary">Exit</Button>
             </Link></div>
