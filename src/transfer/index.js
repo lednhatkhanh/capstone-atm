@@ -77,7 +77,7 @@ class Transfer extends Component {
           this.updateBalance();
         }
       }
-      if(temp === 0) {
+      if(temp == 0) {
         alert(`ID: ${id} not exists !`);
       }
     }
