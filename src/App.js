@@ -5,7 +5,7 @@ import Login from './validations';
 import HomePage from './controller';
 import CheckAccount from './transactions/check-account';
 import Withdraw from './transactions/withdraw';
-import Transfer from './transfer';
+import Transfer from './transactions/transfer';
 import NoMatch from './NoMatch';
 
 import './App.css';
