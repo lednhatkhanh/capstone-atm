@@ -63,7 +63,7 @@ class Transfer extends Component {
     }
     else {
       for(let user of this.state.users) {
-        if(user.id === id) {
+        if(user.id == id) {
           temp++;
           await api.patch(`/users/${id}`, {
             money: user.money + parseInt(amount, 10),
@@ -77,7 +77,7 @@ class Transfer extends Component {
           this.updateBalance();
         }
       }
-      if(temp === 0) {
+      if(temp == 0) {
         alert(`ID: ${id} not exists !`);
       }
     }
