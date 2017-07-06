@@ -16,7 +16,6 @@ class Transfer extends Component {
     }
 
     this.updateBalance = this.updateBalance.bind(this);
-    this.handleTransfer = this.handleTransfer.bind(this);
   }
   async componentDidMount() {
     this.updateBalance();
@@ -30,19 +29,6 @@ class Transfer extends Component {
     this.setState({
       users: users.data,
     });
-  }
-  async handleTransfer(id) {
-    const amount = this.amountInput.value;
-    console.log(amount);
-    if(!amount || amount > this.state.money) {
-      alert('invalid');
-    } else {
-      for(let user of this.state.users) {
-        if(user.id === id) {
-          console.log('ALERT');
-        }
-      }
-    }
   }
   render() {
     return (

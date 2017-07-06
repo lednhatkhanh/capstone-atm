@@ -28,9 +28,9 @@ class Withdraw extends Component {
     })
   }
   async handleWithdraw() {
-    const amount = this.amountInput.value;
-    if(!amount || amount > this.state.money) {
-      alert('Invalid amount!');
+    const amount = parseInt(this.amountInput.value, 10);
+    if(!amount || amount > this.state.money || !(amount % 20 === 0)) {
+      alert('Invalid amount, must be multiple of 20$');
     } else {
       await api.patch('/account', {
         money: this.state.money - amount,

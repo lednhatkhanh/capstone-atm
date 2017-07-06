@@ -19,10 +19,15 @@ class HomePage extends Component {
                 </Link>
               </p>
               <p className="control">
-                  <Link to='/withdraw' className='button withdraw is-primary'>
-                    Withdraw
-                  </Link>
-                </p>
+                <Link to='/withdraw' className='button withdraw is-primary'>
+                  Withdraw
+                </Link>
+              </p>
+              <p className="control">
+                <Link to='/deposit' className='button withdraw is-primary'>
+                  Deposit
+                </Link>
+              </p>
             </div>
             <div className="right">
               <p className="control">
