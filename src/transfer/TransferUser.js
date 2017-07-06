@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../api';
+import './index.css'
 
 class TransferUser extends Component {
   static propTypes = {
@@ -15,9 +16,9 @@ class TransferUser extends Component {
     this.handleTransfer = this.handleTransfer.bind(this);
   }
   async handleTransfer() {
-    const amount = this.amountInput.value;
-    if(!amount || amount > this.props.money) {
-      alert('INVALID');
+    const amount = parseInt(this.amountInput.value, 10);
+    if(!amount || amount > this.props.money || !(amount % 20 === 0)) {
+      alert('Invalid amount to transfer, must be multiple of 20$');
     } else {
       await api.patch(`/users/${this.props.user.id}`, {
         username: this.props.user.username,
@@ -32,21 +33,20 @@ class TransferUser extends Component {
   render() {
     const { user, money } = this.props;
     return (
-      <div>
-        <p>{user.username}</p>
-        <p>Balance: {user.money}</p>
-        <div className="field has-addons">
+      <div className="group">
+        <label className="label name transfer">{user.username}</label>
+        <div className="field transfer has-addons">
           <p className="control">
             <input
               ref={(input) => { this.amountInput = input }}
               type="number"
-              className='input'
+              className='input transfer'
               placeholder="Amount to transfer"
-              min="10000"
+              min="20"
               max={money}/>
           </p>
           <p className="control">
-            <button onClick={this.handleTransfer} className="button is-primary">Transfer</button>
+            <button onClick={this.handleTransfer} className="button transfer is-primary">Transfer</button>
           </p>
         </div>
       </div>

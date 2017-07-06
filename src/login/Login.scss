@@ -1,0 +1,35 @@
+#form-container {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.card {
+  background: rgba(0,0,0,0.2);
+
+  label {
+    color: white;
+    font-weight: 400 !important;
+  }
+}
+
+
+.login {
+  .title {
+    color: white;
+    text-align: center;
+    padding-top: 30px;
+  }
+
+  .control {
+    &.login {
+      padding: 20px 0 40px;
+    }
+    button {
+      width: 100%;
+    }
+  }
+  .card-content {
+    width: 300px;
+    padding: 0;
+  }
+}

@@ -10,7 +10,7 @@ class Login extends Component {
   }
   render() {
     return (
-      <div className='card' id='form-container'>
+      <div className='card login' id='form-container'>
         <div className="card-content">
           <h1 className="title">Login</h1>
           <LoginForm history={this.props.history} />

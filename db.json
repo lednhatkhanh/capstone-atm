@@ -4,17 +4,17 @@
     "pin": "123456"
   },
   "account": {
-    "money": 1999000
+    "money": 999800
   },
   "users": [
     {
       "username": "Ref",
-      "money": 7876556,
+      "money": 7917628,
       "id": 1
     },
     {
       "username": "Lodan",
-      "money": 5124444,
+      "money": 5124573,
       "id": 2
     }
   ]

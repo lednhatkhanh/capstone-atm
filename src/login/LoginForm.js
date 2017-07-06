@@ -25,7 +25,11 @@ class LoginForm extends Component {
     const res = await api.get('/user-info');
     console.log(res.data);
     const { username, pin } = this.state;
-    if(username !== res.data.username || pin !== res.data.pin) {
+
+    if (!(new RegExp('^[0-9]{1,45}$')).test(pin)) {
+      alert('Invalid PIN, PIN must contains only numbers and has the length of 6')
+    }
+    else if(username !== res.data.username || pin !== res.data.pin) {
       alert('Invalid user credentials!');
     } else {
       this.props.history.push('/homepage')
@@ -33,7 +37,7 @@ class LoginForm extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="login">
         <div className="field">
           <label className="label">Username</label>
           <p className="control">
@@ -59,7 +63,7 @@ class LoginForm extends Component {
           </p>
         </div>
         <div className="field">
-          <p className="control">
+          <p className="control login">
             <button onClick={this.handleLogin} className="button is-primary">Login</button>
           </p>
         </div>
