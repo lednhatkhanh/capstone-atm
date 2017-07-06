@@ -1,12 +1,11 @@
-import './WithDraw.css';
+import './Deposit.css';
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import api from '../../api';
-import './WithDraw.css'
+import api from '../api';
 
-class Withdraw extends Component {
+class Deposit extends Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
   }
@@ -29,14 +28,15 @@ class Withdraw extends Component {
   }
   async handleWithdraw() {
     const amount = parseInt(this.amountInput.value, 10);
-    if(!amount || amount > this.state.money || !(amount % 20 === 0)) {
+    console.log(amount, 20);
+    if(!amount || amount > this.state.money || ! (amount % 20 === 0)) {
       alert('Invalid amount, must be multiple of 20$');
     } else {
       await api.patch('/account', {
-        money: this.state.money - amount,
+        money: this.state.money + amount,
       });
       this.setState({
-        money: this.state.money - amount,
+        money: this.state.money + amount,
       })
     }
   }
@@ -47,7 +47,7 @@ class Withdraw extends Component {
         <div className="card-content">
           <h3 className="money">You have ${this.state.money}</h3>
           <div className="field withdraw-input">
-            <label className='label amount-withdraw ' htmlFor="amount">Amount to withdraw</label>
+            <label className='label amount-withdraw ' htmlFor="amount">Amount to deposit</label>
             <div className="control">
               <input
               placeholder="$"
@@ -55,14 +55,13 @@ class Withdraw extends Component {
               name='amount'
               className='input'
               type="number"
-              min='20'
-              max={this.state.money}/>
+              min='20'/>
             </div>
           </div>
           <div className="field btn-control is-grouped">
             <p className="control">
               <div>
-                <button onClick={this.handleWithdraw} className="button is-primary">Withdraw</button>
+                <button onClick={this.handleWithdraw} className="button is-primary">Deposit</button>
               </div>
               <button onClick={() => this.props.history.goBack()} className="button">Back</button>
             </p>
@@ -73,4 +72,4 @@ class Withdraw extends Component {
   }
 }
 
-export default Withdraw;
+export default Deposit;

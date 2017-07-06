@@ -6,6 +6,7 @@ import HomePage from './home';
 import Profile from './profile';
 import Withdraw from './transaction/withdraw';
 import Transfer from './transaction/transfer';
+import Deposit from './transaction/deposit';
 import NoMatch from './error/404';
 
 import './App.css';
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path="/check-account" component={Profile} />
         <Route path="/transaction/withdraw" component={Withdraw} />
         <Route path="/transaction/transfer" component={Transfer} />
+        <Route path="/transaction/deposit" component={Deposit} />
         <Route component={NoMatch} />
       </Switch>
     );
