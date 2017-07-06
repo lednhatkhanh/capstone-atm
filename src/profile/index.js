@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import api from '../api';
-import './CheckAccount.css';
+import './profile.css';
 
-class CheckAccount extends Component {
+class Profile extends Component {
   static propTypes = {
     history: PropTypes.object.isRequired,
   }
@@ -13,6 +13,7 @@ class CheckAccount extends Component {
 
     this.state = {
       money: 0,
+      name: "Unknown"
     }
 
     this.handleGoBack = this.handleGoBack.bind(this);
@@ -21,18 +22,26 @@ class CheckAccount extends Component {
     const res = await api.get('/account');
     this.setState({
       money: res.data.money,
+      username: res.data.username
     });
   }
   handleGoBack() {
     this.props.history.goBack();
   }
+  handleQuery() {
+    alert('This function is not yet implemented');
+  }
   render() {
     return (
       <div className="card homepage check-account">
         <div className="card-content">
-          <h1 className='title is-3'>You have: ${this.state.money}</h1>
+          <h1 className='title is-3'>
+            <div>Name: {this.state.username}</div>
+            <div>You have: ${this.state.money}</div>
+          </h1>
           <div className="btn-back">
-            <button onClick={this.handleGoBack} className="button is-primary">Back</button>
+            <button style={{marginRight: 'auto', marginLeft: 0}} onClick={this.handleQuery} className="button is-primary">Query</button>
+            <button onClick={this.handleGoBack} className="button is-default">Back</button>
           </div>
         </div>
       </div>
@@ -40,4 +49,4 @@ class CheckAccount extends Component {
   }
 }
 
-export default CheckAccount;
+export default Profile;

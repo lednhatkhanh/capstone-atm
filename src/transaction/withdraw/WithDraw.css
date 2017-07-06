@@ -8,17 +8,25 @@
 }
 .withdraw-input {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center !important;
 }
 
 .field.withdraw-input {
   height: auto;
 }
 
+.input {
+  margin-top: 20px;
+  padding: 20px 30px;
+  font-size: 32px;
+}
+
 .label.amount-withdraw {
   font-size: 2em;
   padding-right: 10px;
   margin: 0;
+  display: block;
 }
 
 .field.btn-control {
@@ -26,5 +34,4 @@
   display: flex;
   justify-content: flex-end;
 }
-
 

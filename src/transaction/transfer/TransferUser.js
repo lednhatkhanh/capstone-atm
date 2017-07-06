@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import api from '../api';
+import api from '../../api';
 import './index.css'
 
 class TransferUser extends Component {
@@ -34,7 +34,6 @@ class TransferUser extends Component {
     const { user, money } = this.props;
     return (
       <div className="group">
-        <label className="label name transfer">{user.username}</label>
         <div className="field transfer has-addons">
           <p className="control">
             <input

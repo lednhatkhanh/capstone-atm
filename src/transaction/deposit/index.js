@@ -3,7 +3,7 @@ import './Deposit.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import api from '../api';
+import api from '../../api';
 
 class Deposit extends Component {
   static propTypes = {

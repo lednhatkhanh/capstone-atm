@@ -4,18 +4,28 @@
     "pin": "123456"
   },
   "account": {
-    "money": 999800
+    "money": 12823531
   },
   "users": [
     {
-      "username": "Ref",
-      "money": 7917628,
+      "username": "Puppey Logan",
+      "money": 9500658,
       "id": 1
     },
     {
-      "username": "Lodan",
-      "money": 5124573,
+      "username": "Marry Lodan",
+      "money": 5476029,
       "id": 2
+    },
+    {
+      "username": "Saul Goodman",
+      "money": 4563456,
+      "id": 3
+    },
+    {
+      "username": "Walter White",
+      "money": 12355312963,
+      "id": 4
     }
   ]
 }

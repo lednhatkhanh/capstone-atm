@@ -8,8 +8,8 @@ class HomePage extends Component {
       <div className='card homepage'>
         <div className="card-content">
           <div className="title">
-            <h1>Welcome, Sunway Team Mobile</h1>
-            <h1>Please choose the Transaction type!</h1>
+            <h1>Welcome, Sunway Team Mobile's ATM Machine</h1>
+            <h1>Please choose your action!</h1>
           </div>
           <div className="field is-grouped">
             <div className="left">
@@ -19,24 +19,24 @@ class HomePage extends Component {
                 </Link>
               </p>
               <p className="control">
-                <Link to='/withdraw' className='button withdraw is-primary'>
+                <Link to='/transaction/withdraw' className='button withdraw is-primary'>
                   Withdraw
                 </Link>
               </p>
               <p className="control">
-                <Link to='/deposit' className='button withdraw is-primary'>
+                <Link to='/transaction/deposit' className='button withdraw is-primary'>
                   Deposit
                 </Link>
               </p>
             </div>
             <div className="right">
               <p className="control">
-                <Link to='/transfer' className='button transfer-home is-primary'>
+                <Link to='/transaction/transfer' className='button transfer-home is-primary'>
                   Transfer
                 </Link>
               </p>
               <p className="control">
-                <Link to='/' className='button exit is-primary'>
+                <Link to='/' className='button exit is-danger'>
                   Exit
                 </Link>
               </p>
