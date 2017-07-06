@@ -4,13 +4,12 @@
     "pin": "123456"
   },
   "account": {
-    "money": 12824811,
-    "username": "Tri Pham"
+    "money": 12823531
   },
   "users": [
     {
       "username": "Puppey Logan",
-      "money": 9500018,
+      "money": 9500658,
       "id": 1
     },
     {
@@ -25,7 +24,7 @@
     },
     {
       "username": "Walter White",
-      "money": 12355312323,
+      "money": 12355312963,
       "id": 4
     }
   ]
